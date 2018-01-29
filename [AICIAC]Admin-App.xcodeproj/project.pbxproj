@@ -14,6 +14,7 @@
 		0F2BAE752017A44A0006C27D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2BAE732017A44A0006C27D /* LaunchScreen.storyboard */; };
 		0F435B1D2018C52F00D4B757 /* bh_6th.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F435B1B2018C52F00D4B757 /* bh_6th.png */; };
 		0F435B1E2018C52F00D4B757 /* bh_7th.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F435B1C2018C52F00D4B757 /* bh_7th.png */; };
+		0FBA247D201F43E800263932 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA247C201F43E800263932 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0F2BAE762017A44A0006C27D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F435B1B2018C52F00D4B757 /* bh_6th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bh_6th.png; sourceTree = "<group>"; };
 		0F435B1C2018C52F00D4B757 /* bh_7th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bh_7th.png; sourceTree = "<group>"; };
+		0FBA247C201F43E800263932 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				0F435B1B2018C52F00D4B757 /* bh_6th.png */,
 				0F435B1C2018C52F00D4B757 /* bh_7th.png */,
 				0F2BAE6A2017A44A0006C27D /* AppDelegate.swift */,
+				0FBA247C201F43E800263932 /* HTTPClient.swift */,
 				0F2BAE6C2017A44A0006C27D /* ViewController.swift */,
 				0F2BAE6E2017A44A0006C27D /* Main.storyboard */,
 				0F2BAE712017A44A0006C27D /* Assets.xcassets */,
@@ -97,7 +100,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Alexandru Clapa";
 				TargetAttributes = {
 					0F2BAE662017A44A0006C27D = {
@@ -146,6 +149,7 @@
 			files = (
 				0F2BAE6D2017A44A0006C27D /* ViewController.swift in Sources */,
 				0F2BAE6B2017A44A0006C27D /* AppDelegate.swift in Sources */,
+				0FBA247D201F43E800263932 /* HTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +189,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -192,6 +197,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -242,6 +248,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -249,6 +256,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -273,6 +281,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -282,6 +291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3V7L8YK8G;
 				INFOPLIST_FILE = "[AICIAC]Admin-App/Info.plist";
@@ -297,6 +307,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3V7L8YK8G;
 				INFOPLIST_FILE = "[AICIAC]Admin-App/Info.plist";
