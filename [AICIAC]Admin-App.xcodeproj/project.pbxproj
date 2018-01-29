@@ -64,9 +64,7 @@
 		0F2BAE692017A44A0006C27D /* [AICIAC]Admin-App */ = {
 			isa = PBXGroup;
 			children = (
-				0FBA2480201F8C6900263932 /* bh_5th.png */,
-				0F435B1B2018C52F00D4B757 /* bh_6th.png */,
-				0F435B1C2018C52F00D4B757 /* bh_7th.png */,
+				0FBA2482201F913700263932 /* Floor plans */,
 				0F2BAE6A2017A44A0006C27D /* AppDelegate.swift */,
 				0FBA247C201F43E800263932 /* HTTPClient.swift */,
 				0F2BAE6C2017A44A0006C27D /* FloorSelecterViewController.swift */,
@@ -77,6 +75,16 @@
 				0F2BAE762017A44A0006C27D /* Info.plist */,
 			);
 			path = "[AICIAC]Admin-App";
+			sourceTree = "<group>";
+		};
+		0FBA2482201F913700263932 /* Floor plans */ = {
+			isa = PBXGroup;
+			children = (
+				0FBA2480201F8C6900263932 /* bh_5th.png */,
+				0F435B1B2018C52F00D4B757 /* bh_6th.png */,
+				0F435B1C2018C52F00D4B757 /* bh_7th.png */,
+			);
+			path = "Floor plans";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
