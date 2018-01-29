@@ -19,9 +19,9 @@ class ViewController: UIViewController {
 	@IBAction func scanOnPressed(sender: UIButton) {
 		HTTPClient.shared.PUT(urlString: "https://scanner-on-off.herokuapp.com/scanSwitch/1", parameters: nil) { (response) in
 			if response == true {
-				print("Success!!")
+				print("Scanner turned on!")
 			} else {
-				print("Failed!!")
+				print("Failed to turn scan on!")
 			}
 		}
 	}
