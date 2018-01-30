@@ -96,7 +96,10 @@ class FloorPlanViewController: UIViewController {
 			}
 			
 			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-//				let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+				let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+				if let text = textField.text {
+					self.createRoom(roomName: text)
+				}
 			}))
 			
 			self.present(alert, animated: true, completion: nil)
