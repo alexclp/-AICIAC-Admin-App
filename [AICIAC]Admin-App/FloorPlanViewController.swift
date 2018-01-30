@@ -11,7 +11,8 @@ import UIKit
 class FloorPlanViewController: UIViewController {
 	@IBOutlet weak var floorPlanImageView: UIImageView!
 	
-	let baseURL = "https://wifi-nav-api.herokuapp.com"
+	let baseURLAPI = "https://wifi-nav-api.herokuapp.com"
+	let baseURLScanner = "https://scanner-on-off.herokuapp.com/"
 	
 	var imageName = ""
 	var roomID = -1
@@ -27,7 +28,7 @@ class FloorPlanViewController: UIViewController {
 	
 	func createRoom(roomName: String) {
 		let params = ["name": roomName]
-		HTTPClient.shared.request(urlString: baseURL + "/rooms", method: "POST", parameters: params) { (success, responseJSON) in
+		HTTPClient.shared.request(urlString: baseURLAPI + "/rooms", method: "POST", parameters: params) { (success, responseJSON) in
 			if success == true {
 				print("Successfully created room with name \(roomName)")
 				if let json = responseJSON {
@@ -47,8 +48,8 @@ class FloorPlanViewController: UIViewController {
 					  "pressure": pressure,
 					  "roomID": roomID]
 		as [String: Any]
-		HTTPClient.shared.request(urlString: baseURL + "locations", method: "POST", parameters: params) { (response, responseJSON) in
-			if response == true {
+		HTTPClient.shared.request(urlString: baseURLAPI + "locations", method: "POST", parameters: params) { (success, responseJSON) in
+			if success == true {
 				print("Successfully create location")
 				if let json = responseJSON {
 					if let locationID = json["locationID"] as? Int {
@@ -57,6 +58,20 @@ class FloorPlanViewController: UIViewController {
 				}
 			} else {
 				print("Failed to create location")
+			}
+		}
+	}
+	
+	func scannerOn(roomID: Int, locationID: Int) {
+		let params = ["locationID": locationID,
+					  "roomID": roomID,
+					  "shouldScan": 1]
+		as [String: Any]
+		HTTPClient.shared.request(urlString: baseURLScanner + "/1", method: "PATCH", parameters: params) { (success, responseJSON) in
+			if success == true {
+				print("Successfully turned scanner on")
+			} else {
+				print("Failed to turn scanner on")
 			}
 		}
 	}
