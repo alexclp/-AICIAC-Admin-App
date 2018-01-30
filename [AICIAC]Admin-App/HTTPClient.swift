@@ -25,21 +25,18 @@ class HTTPClient: NSObject {
 		let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
 			guard error == nil else {
 				print(error!)
-				completion(false)
+				completion(false, nil)
 				return
 			}
 			
 			guard let data = data else {
 				print("Data is empty")
-				completion(false)
+				completion(false, nil)
 				return
 			}
 			
 			let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-			for (key, value) in json {
-				print("\(key) : \(value)")
-			}
-			completion(true)
+			completion(true, json)
 		})
 		
 		task.resume()
