@@ -51,11 +51,9 @@ class FloorPlanViewController: UIViewController {
 		HTTPClient.shared.request(urlString: baseURLAPI + "locations", method: "POST", parameters: params) { (success, responseJSON) in
 			if success == true {
 				print("Successfully create location")
-				if let json = responseJSON {
-					if let locationID = json["locationID"] as? Int {
-						self.locationID = locationID
-					}
-				}
+				guard let locationID = responseJSON?["locationID"] as? Int else { return }
+				self.locationID = locationID
+				self.scannerOn(roomID: self.roomID, locationID: self.locationID)
 			} else {
 				print("Failed to create location")
 			}
@@ -127,6 +125,10 @@ class FloorPlanViewController: UIViewController {
 			let x = (touchPoint.x - floorPlanImageView.bounds.minX) * floorPlanImage.size.width / floorPlanImageView.bounds.width
 			let y = (touchPoint.y - floorPlanImageView.bounds.minY) * floorPlanImage.size.height / floorPlanImageView.bounds.height
 			print("Locations are x: \(x) and \(y)")
+			
+			if roomID != -1 {
+				createLocation(x: Double(x), y: Double(y), pressure: 0.0, roomID: roomID)
+			}
 		}
 	}
 }
