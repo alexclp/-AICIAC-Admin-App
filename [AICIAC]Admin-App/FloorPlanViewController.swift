@@ -20,6 +20,7 @@ class FloorPlanViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.navigationItem.title = imageName
 		setFloorPlanImage()
 		setPlusButton()
     }
