@@ -17,6 +17,7 @@
 		0FBA247D201F43E800263932 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA247C201F43E800263932 /* HTTPClient.swift */; };
 		0FBA247F201F825400263932 /* FloorPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA247E201F825400263932 /* FloorPlanViewController.swift */; };
 		0FBA2481201F8C6900263932 /* bh_5th.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FBA2480201F8C6900263932 /* bh_5th.png */; };
+		0FBA24842020A98C00263932 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA24832020A98C00263932 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0FBA247C201F43E800263932 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		0FBA247E201F825400263932 /* FloorPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanViewController.swift; sourceTree = "<group>"; };
 		0FBA2480201F8C6900263932 /* bh_5th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bh_5th.png; sourceTree = "<group>"; };
+		0FBA24832020A98C00263932 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				0FBA2482201F913700263932 /* Floor plans */,
 				0F2BAE6A2017A44A0006C27D /* AppDelegate.swift */,
+				0FBA24832020A98C00263932 /* Extensions.swift */,
 				0FBA247C201F43E800263932 /* HTTPClient.swift */,
 				0F2BAE6C2017A44A0006C27D /* FloorSelecterViewController.swift */,
 				0FBA247E201F825400263932 /* FloorPlanViewController.swift */,
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FBA24842020A98C00263932 /* Extensions.swift in Sources */,
 				0FBA247F201F825400263932 /* FloorPlanViewController.swift in Sources */,
 				0F2BAE6D2017A44A0006C27D /* FloorSelecterViewController.swift in Sources */,
 				0F2BAE6B2017A44A0006C27D /* AppDelegate.swift in Sources */,
@@ -297,7 +301,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
