@@ -8,13 +8,14 @@
 
 import UIKit
 
-class FloorSelecterViewController: UIViewController {
+class FloorListViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
 	private var selectedFloor = 0
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.navigationItem.title = "Floor List"
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -25,7 +26,7 @@ class FloorSelecterViewController: UIViewController {
 	}
 }
 
-extension FloorSelecterViewController: UITableViewDataSource {
+extension FloorListViewController: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
@@ -50,7 +51,7 @@ extension FloorSelecterViewController: UITableViewDataSource {
 	}
 }
 
-extension FloorSelecterViewController: UITableViewDelegate {
+extension FloorListViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		selectedFloor = 5 + indexPath.row
 		performSegue(withIdentifier: "showFloorPlan", sender: self)

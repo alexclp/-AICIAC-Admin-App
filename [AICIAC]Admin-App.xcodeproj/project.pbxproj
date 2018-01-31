@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F2BAE6B2017A44A0006C27D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2BAE6A2017A44A0006C27D /* AppDelegate.swift */; };
-		0F2BAE6D2017A44A0006C27D /* FloorSelecterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2BAE6C2017A44A0006C27D /* FloorSelecterViewController.swift */; };
+		0F2BAE6D2017A44A0006C27D /* FloorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2BAE6C2017A44A0006C27D /* FloorListViewController.swift */; };
 		0F2BAE702017A44A0006C27D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2BAE6E2017A44A0006C27D /* Main.storyboard */; };
 		0F2BAE722017A44A0006C27D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2BAE712017A44A0006C27D /* Assets.xcassets */; };
 		0F2BAE752017A44A0006C27D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2BAE732017A44A0006C27D /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 /* Begin PBXFileReference section */
 		0F2BAE672017A44A0006C27D /* [AICIAC]Admin-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "[AICIAC]Admin-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2BAE6A2017A44A0006C27D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F2BAE6C2017A44A0006C27D /* FloorSelecterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorSelecterViewController.swift; sourceTree = "<group>"; };
+		0F2BAE6C2017A44A0006C27D /* FloorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorListViewController.swift; sourceTree = "<group>"; };
 		0F2BAE6F2017A44A0006C27D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F2BAE712017A44A0006C27D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F2BAE742017A44A0006C27D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 				0F2BAE6A2017A44A0006C27D /* AppDelegate.swift */,
 				0FBA24832020A98C00263932 /* Extensions.swift */,
 				0FBA247C201F43E800263932 /* HTTPClient.swift */,
-				0F2BAE6C2017A44A0006C27D /* FloorSelecterViewController.swift */,
+				0F2BAE6C2017A44A0006C27D /* FloorListViewController.swift */,
 				0FBA247E201F825400263932 /* FloorPlanViewController.swift */,
 				0F2BAE6E2017A44A0006C27D /* Main.storyboard */,
 				0F2BAE712017A44A0006C27D /* Assets.xcassets */,
@@ -167,7 +167,7 @@
 			files = (
 				0FBA24842020A98C00263932 /* Extensions.swift in Sources */,
 				0FBA247F201F825400263932 /* FloorPlanViewController.swift in Sources */,
-				0F2BAE6D2017A44A0006C27D /* FloorSelecterViewController.swift in Sources */,
+				0F2BAE6D2017A44A0006C27D /* FloorListViewController.swift in Sources */,
 				0F2BAE6B2017A44A0006C27D /* AppDelegate.swift in Sources */,
 				0FBA247D201F43E800263932 /* HTTPClient.swift in Sources */,
 			);
