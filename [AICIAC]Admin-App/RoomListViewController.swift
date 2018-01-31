@@ -13,15 +13,31 @@ class RoomListViewController: UIViewController {
 	
 	var roomList = [[String: Any]]()
 	var selectedFloor = 0
+	var selectedRoom = [String: Any]()
 	let baseURLAPI = "https://wifi-nav-api.herokuapp.com"
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.navigationItem.title = "Room List"
 		getRooms(for: selectedFloor)
+		setPlusButton()
     }
 
-	// MARK: Data fetch
+	// MARK: API
+	
+	func createRoom(roomName: String, floorNumber: Int) {
+		let params = ["name": roomName,
+					  "floorNumber": floorNumber]
+			as [String: Any]
+		HTTPClient.shared.request(urlString: baseURLAPI + "/rooms", method: "POST", parameters: params) { (success, data) in
+			if success == true {
+				print("Successfully created room with name \(roomName)")
+				self.getRooms(for: self.selectedFloor)
+			} else {
+				print("Failed to create room with name \(roomName)")
+			}
+		}
+	}
 	
 	func getRooms(for floorNumber: Int) {
 		HTTPClient.shared.request(urlString: baseURLAPI + "/rooms/floor/\(floorNumber)", method: "GET", parameters: nil) { (success, data) in
@@ -40,6 +56,48 @@ class RoomListViewController: UIViewController {
 					print(error.localizedDescription)
 				}
 			}
+		}
+	}
+	
+	// MARK: UI
+	
+	func setPlusButton() {
+		let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.plusButtonPressed(sender:)))
+		self.navigationItem.rightBarButtonItem = button
+	}
+	
+	@objc func plusButtonPressed(sender: UIBarButtonItem) {
+		let alertController = UIAlertController(title: "Room details", message: "Enter the room's name", preferredStyle: .alert)
+		
+		alertController.addTextField { (textField) in
+			textField.text = "Room 1"
+		}
+		
+		alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alertController] (_) in
+			let roomNameTextField = alertController!.textFields![0] // Force unwrapping because we know it exists.
+			if let roomName = roomNameTextField.text {
+				self.createRoom(roomName: roomName, floorNumber: self.selectedFloor)
+			}
+		}))
+		
+		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+			self.dismiss(animated: true, completion: nil)
+		}))
+		
+		// iPad support
+		if let popoverController = alertController.popoverPresentationController {
+			popoverController.barButtonItem = sender
+		}
+
+		present(alertController, animated: true, completion: nil)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "showFloorPlan" {
+			guard let destination = segue.destination as? FloorPlanViewController else { return }
+			guard let roomID = selectedRoom["id"] as? Int else { return }
+			destination.roomID = roomID
+			destination.imageName = "bh_\(selectedFloor)th.png"
 		}
 	}
 }
@@ -65,6 +123,8 @@ extension RoomListViewController: UITableViewDataSource {
 
 extension RoomListViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		selectedRoom = roomList[indexPath.row]
+		self.performSegue(withIdentifier: "showFloorPlan", sender: self)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
