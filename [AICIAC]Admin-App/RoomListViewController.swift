@@ -59,6 +59,24 @@ class RoomListViewController: UIViewController {
 		}
 	}
 	
+	func deleteRoom(at indexPath: IndexPath) {
+		guard let roomID = roomList[indexPath.row]["id"] as? Int else { return }
+		HTTPClient.shared.request(urlString: baseURLAPI + "/rooms/\(roomID)", method: "DELETE", parameters: nil) { (success, data) in
+			if success == true {
+				self.roomList.remove(at: indexPath.row)
+				
+				DispatchQueue.main.async {
+					self.tableView.deleteRows(at: [indexPath], with: .fade)
+					self.tableView.reloadData()
+				}
+				
+				print("Successfully deleted room")
+			} else {
+				print("Failed to delete room")
+			}
+		}
+	}
+	
 	// MARK: UI
 	
 	func setPlusButton() {
@@ -118,6 +136,12 @@ extension RoomListViewController: UITableViewDataSource {
 			cell.textLabel?.text = name
 		}
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			deleteRoom(at: indexPath)
+		}
 	}
 }
 

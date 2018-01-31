@@ -12,7 +12,7 @@ class FloorPlanViewController: UIViewController {
 	@IBOutlet weak var floorPlanImageView: UIImageView!
 	
 	let baseURLAPI = "https://wifi-nav-api.herokuapp.com"
-	let baseURLScanner = "https://scanner-on-off.herokuapp.com/"
+	let baseURLScanner = "https://scanner-on-off.herokuapp.com"
 	
 	var imageName = ""
 	var roomID = -1
@@ -32,13 +32,13 @@ class FloorPlanViewController: UIViewController {
 					  "y": y,
 					  "roomID": roomID]
 		as [String: Any]
-		HTTPClient.shared.request(urlString: baseURLAPI + "locations", method: "POST", parameters: params) { (success, data) in
+		HTTPClient.shared.request(urlString: baseURLAPI + "/locations", method: "POST", parameters: params) { (success, data) in
 			if success == true {
-				print("Successfully create location")
+				print("Successfully created location")
 				guard let data = data else { return }
 				do {
 					if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-						guard let locationID = json["locationID"] as? Int else { return }
+						guard let locationID = json["id"] as? Int else { return }
 						self.locationID = locationID
 						self.scannerOn(roomID: self.roomID, locationID: self.locationID)
 					}
@@ -57,7 +57,7 @@ class FloorPlanViewController: UIViewController {
 					  "roomID": roomID,
 					  "shouldScan": 1]
 		as [String: Any]
-		HTTPClient.shared.request(urlString: baseURLScanner + "/1", method: "PATCH", parameters: params) { (success, responseJSON) in
+		HTTPClient.shared.request(urlString: baseURLScanner + "/scanSwitch/1", method: "PATCH", parameters: params) { (success, responseJSON) in
 			if success == true {
 				print("Successfully turned scanner on")
 			} else {

@@ -35,6 +35,16 @@ class HTTPClient: NSObject {
 				return
 			}
 			
+			guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+				completion(false, nil)
+				return
+			}
+			
+			if statusCode != 200 {
+				completion(false, nil)
+				return
+			}
+			
 			completion(true, data)
 		})
 		
