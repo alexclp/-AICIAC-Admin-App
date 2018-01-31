@@ -19,9 +19,9 @@ class FloorListViewController: UIViewController {
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "showFloorPlan" {
-			guard let destination = segue.destination as? FloorPlanViewController else { return }
-			destination.imageName = "bh_\(selectedFloor)th.png"
+		if segue.identifier == "showRoomsList" {
+			guard let destination = segue.destination as? RoomListViewController else { return }
+			destination.selectedFloor = selectedFloor
 		}
 	}
 }
@@ -54,7 +54,7 @@ extension FloorListViewController: UITableViewDataSource {
 extension FloorListViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		selectedFloor = 5 + indexPath.row
-		performSegue(withIdentifier: "showFloorPlan", sender: self)
+		performSegue(withIdentifier: "showRoomsList", sender: self)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }

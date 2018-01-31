@@ -13,7 +13,7 @@ class HTTPClient: NSObject {
 
 	private override init() { }
 	
-	func request(urlString: String, method: String, parameters: [String: Any]?, completion: @escaping (Bool, [String: Any]?) -> Void) {
+	func request(urlString: String, method: String, parameters: [String: Any]?, completion: @escaping (Bool, Data?) -> Void) {
 		let url = URL(string: urlString)
 		var urlRequest = URLRequest(url: url!)
 		urlRequest.httpMethod = method
@@ -35,8 +35,7 @@ class HTTPClient: NSObject {
 				return
 			}
 			
-			let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-			completion(true, json)
+			completion(true, data)
 		})
 		
 		task.resume()

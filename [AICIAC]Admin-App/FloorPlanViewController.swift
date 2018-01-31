@@ -29,13 +29,18 @@ class FloorPlanViewController: UIViewController {
 	
 	func createRoom(roomName: String) {
 		let params = ["name": roomName]
-		HTTPClient.shared.request(urlString: baseURLAPI + "/rooms", method: "POST", parameters: params) { (success, responseJSON) in
+		HTTPClient.shared.request(urlString: baseURLAPI + "/rooms", method: "POST", parameters: params) { (success, data) in
 			if success == true {
 				print("Successfully created room with name \(roomName)")
-				if let json = responseJSON {
-					if let roomID = json["roomID"] as? Int {
-						self.roomID = roomID
+				guard let data = data else { return }
+				do {
+					if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+						if let roomID = json["roomID"] as? Int {
+							self.roomID = roomID
+						}
 					}
+				} catch {
+					print(error.localizedDescription)
 				}
 			} else {
 				print("Failed to create room with name \(roomName)")
@@ -49,12 +54,20 @@ class FloorPlanViewController: UIViewController {
 					  "pressure": pressure,
 					  "roomID": roomID]
 		as [String: Any]
-		HTTPClient.shared.request(urlString: baseURLAPI + "locations", method: "POST", parameters: params) { (success, responseJSON) in
+		HTTPClient.shared.request(urlString: baseURLAPI + "locations", method: "POST", parameters: params) { (success, data) in
 			if success == true {
 				print("Successfully create location")
-				guard let locationID = responseJSON?["locationID"] as? Int else { return }
-				self.locationID = locationID
-				self.scannerOn(roomID: self.roomID, locationID: self.locationID)
+				guard let data = data else { return }
+				do {
+					if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+						guard let locationID = json["locationID"] as? Int else { return }
+						self.locationID = locationID
+						self.scannerOn(roomID: self.roomID, locationID: self.locationID)
+					}
+				} catch {
+					print(error.localizedDescription)
+				}
+				
 			} else {
 				print("Failed to create location")
 			}
