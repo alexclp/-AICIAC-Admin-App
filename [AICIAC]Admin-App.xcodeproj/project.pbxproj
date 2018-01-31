@@ -18,6 +18,7 @@
 		0FBA247F201F825400263932 /* FloorPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA247E201F825400263932 /* FloorPlanViewController.swift */; };
 		0FBA2481201F8C6900263932 /* bh_5th.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FBA2480201F8C6900263932 /* bh_5th.png */; };
 		0FBA24842020A98C00263932 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA24832020A98C00263932 /* Extensions.swift */; };
+		0FE0CCA12021C4A30094F0C2 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0CCA02021C4A30094F0C2 /* RoomListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		0FBA247E201F825400263932 /* FloorPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanViewController.swift; sourceTree = "<group>"; };
 		0FBA2480201F8C6900263932 /* bh_5th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bh_5th.png; sourceTree = "<group>"; };
 		0FBA24832020A98C00263932 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0FE0CCA02021C4A30094F0C2 /* RoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				0FBA24832020A98C00263932 /* Extensions.swift */,
 				0FBA247C201F43E800263932 /* HTTPClient.swift */,
 				0F2BAE6C2017A44A0006C27D /* FloorListViewController.swift */,
+				0FE0CCA02021C4A30094F0C2 /* RoomListViewController.swift */,
 				0FBA247E201F825400263932 /* FloorPlanViewController.swift */,
 				0F2BAE6E2017A44A0006C27D /* Main.storyboard */,
 				0F2BAE712017A44A0006C27D /* Assets.xcassets */,
@@ -168,6 +171,7 @@
 				0FBA24842020A98C00263932 /* Extensions.swift in Sources */,
 				0FBA247F201F825400263932 /* FloorPlanViewController.swift in Sources */,
 				0F2BAE6D2017A44A0006C27D /* FloorListViewController.swift in Sources */,
+				0FE0CCA12021C4A30094F0C2 /* RoomListViewController.swift in Sources */,
 				0F2BAE6B2017A44A0006C27D /* AppDelegate.swift in Sources */,
 				0FBA247D201F43E800263932 /* HTTPClient.swift in Sources */,
 			);
