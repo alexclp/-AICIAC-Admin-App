@@ -77,6 +77,17 @@ class RoomListViewController: UIViewController {
 		}
 	}
 	
+	func clearDataForRoom(at indexPath: IndexPath) {
+		guard let roomID = roomList[indexPath.row]["id"] as? Int else { return }
+		HTTPClient.shared.request(urlString: baseURLAPI + "/rooms/clearData/\(roomID)", method: "DELETE", parameters: nil) { (success, responseData) in
+			if success == true {
+				print("Successfully cleared data!")
+			} else {
+				print("Failed to clear data for room")
+			}
+		}
+	}
+	
 	// MARK: UI
 	
 	func setPlusButton() {
@@ -138,10 +149,21 @@ extension RoomListViewController: UITableViewDataSource {
 		return cell
 	}
 	
-	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-		if editingStyle == .delete {
-			deleteRoom(at: indexPath)
+	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+		return true
+	}
+	
+	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+		let more = UITableViewRowAction(style: .normal, title: "Clear") { action, index in
+			print("more button tapped")
+			self.clearDataForRoom(at: indexPath)
 		}
+		more.backgroundColor = UIColor.yellow
+		
+		let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, index) in
+			self.deleteRoom(at: indexPath)
+		}
+		return [delete, more]
 	}
 }
 
