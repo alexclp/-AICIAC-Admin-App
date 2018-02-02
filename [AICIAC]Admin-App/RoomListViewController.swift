@@ -158,7 +158,7 @@ extension RoomListViewController: UITableViewDataSource {
 			print("more button tapped")
 			self.clearDataForRoom(at: indexPath)
 		}
-		more.backgroundColor = UIColor.yellow
+		more.backgroundColor = UIColor.gray
 		
 		let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, index) in
 			self.deleteRoom(at: indexPath)
