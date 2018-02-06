@@ -12,13 +12,13 @@
 		0F2BAE702017A44A0006C27D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2BAE6E2017A44A0006C27D /* Main.storyboard */; };
 		0F2BAE722017A44A0006C27D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2BAE712017A44A0006C27D /* Assets.xcassets */; };
 		0F2BAE752017A44A0006C27D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2BAE732017A44A0006C27D /* LaunchScreen.storyboard */; };
+		0F34ABDD2029CDE600559EDB /* bh_7th.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F34ABDC2029CDE600559EDB /* bh_7th.png */; };
 		0F435B1D2018C52F00D4B757 /* bh_6th.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F435B1B2018C52F00D4B757 /* bh_6th.png */; };
 		0FBA247D201F43E800263932 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA247C201F43E800263932 /* HTTPClient.swift */; };
 		0FBA247F201F825400263932 /* FloorPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA247E201F825400263932 /* FloorPlanViewController.swift */; };
 		0FBA2481201F8C6900263932 /* bh_5th.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FBA2480201F8C6900263932 /* bh_5th.png */; };
 		0FBA24842020A98C00263932 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA24832020A98C00263932 /* Extensions.swift */; };
 		0FE0CCA12021C4A30094F0C2 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0CCA02021C4A30094F0C2 /* RoomListViewController.swift */; };
-		0FE0CCA32022040F0094F0C2 /* bh_7th.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FE0CCA22022040F0094F0C2 /* bh_7th.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,13 +29,13 @@
 		0F2BAE712017A44A0006C27D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F2BAE742017A44A0006C27D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F2BAE762017A44A0006C27D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F34ABDC2029CDE600559EDB /* bh_7th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bh_7th.png; sourceTree = "<group>"; };
 		0F435B1B2018C52F00D4B757 /* bh_6th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bh_6th.png; sourceTree = "<group>"; };
 		0FBA247C201F43E800263932 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		0FBA247E201F825400263932 /* FloorPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanViewController.swift; sourceTree = "<group>"; };
 		0FBA2480201F8C6900263932 /* bh_5th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bh_5th.png; sourceTree = "<group>"; };
 		0FBA24832020A98C00263932 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0FE0CCA02021C4A30094F0C2 /* RoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
-		0FE0CCA22022040F0094F0C2 /* bh_7th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bh_7th.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 			children = (
 				0FBA2480201F8C6900263932 /* bh_5th.png */,
 				0F435B1B2018C52F00D4B757 /* bh_6th.png */,
-				0FE0CCA22022040F0094F0C2 /* bh_7th.png */,
+				0F34ABDC2029CDE600559EDB /* bh_7th.png */,
 			);
 			path = "Floor plans";
 			sourceTree = "<group>";
@@ -153,7 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FBA2481201F8C6900263932 /* bh_5th.png in Resources */,
-				0FE0CCA32022040F0094F0C2 /* bh_7th.png in Resources */,
+				0F34ABDD2029CDE600559EDB /* bh_7th.png in Resources */,
 				0F435B1D2018C52F00D4B757 /* bh_6th.png in Resources */,
 				0F2BAE752017A44A0006C27D /* LaunchScreen.storyboard in Resources */,
 				0F2BAE722017A44A0006C27D /* Assets.xcassets in Resources */,
