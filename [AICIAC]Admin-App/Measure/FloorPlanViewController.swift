@@ -76,14 +76,15 @@ class FloorPlanViewController: UIViewController {
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		let touch = touches.first!
-		let touchPoint = touch.location(in: self.view)
+		let touchPoint = touch.location(in: self.floorPlanImageView)
+		print("Touch point is: \(touchPoint)")
 		if let floorPlanImage = floorPlanImageView.image {
 			let x = (touchPoint.x - floorPlanImageView.bounds.minX) * floorPlanImage.size.width / floorPlanImageView.bounds.width
 			let y = (touchPoint.y - floorPlanImageView.bounds.minY) * floorPlanImage.size.height / floorPlanImageView.bounds.height
 			print("Locations are x: \(x) and \(y)")
 			
 			if roomID != -1 {
-				createLocation(x: Double(x), y: Double(y), roomID: roomID)
+//				createLocation(x: Double(x), y: Double(y), roomID: roomID)
 			}
 		}
 	}

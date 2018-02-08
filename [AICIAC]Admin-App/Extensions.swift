@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Dictionary {
 	func jsonString() -> String? {
@@ -15,5 +16,19 @@ extension Dictionary {
 		let jsonString = String(data: jsonData!, encoding: .utf8)
 		guard jsonString != nil else { return nil }
 		return jsonString! as String
+	}
+}
+
+extension UserDefaults {
+	static func isFirstLaunch() -> Bool {
+		let flagName = "launched"
+		
+		if UserDefaults.standard.object(forKey: flagName) != nil {
+			return true
+		}
+		
+		UserDefaults.standard.set(true, forKey: flagName)
+		UserDefaults.standard.synchronize()
+		return false
 	}
 }
