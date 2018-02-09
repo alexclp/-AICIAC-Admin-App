@@ -8,17 +8,18 @@
 
 import UIKit
 
-enum CornerList {
-	case topRight
-	case topLeft
-	case bottomRight
-	case bottomLeft
+enum CornerList: String {
+	case topRight = "topRight"
+	case topLeft = "topLeft"
+	case bottomRight = "bottomRight"
+	case bottomLeft = "bottomLeft"
+	case none = "none"
 }
 
 class CornerViewController: UIViewController {
 	@IBOutlet weak var floorImageView: UIImageView!
 	
-	var selectedCorner = CornerList.self
+	var selectedCorner = CornerList.none
 	var topRightCoordinates = (51.51353, -0.117070)
 	var topLeftCoordinates = (51.51298, -0.117716)
 	var bottomRightCoordinates = (51.512472, -0.116762)
@@ -26,8 +27,27 @@ class CornerViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+		if let rawValue = UserDefaults.standard.string(forKey: "selectedCorner") {
+			selectedCorner = CornerList(rawValue: rawValue)!
+		}
     }
 
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		let touch = touches.first!
+		let touchPoint = touch.location(in: self.floorImageView)
+		if selectedCorner == CornerList.bottomLeft {
+			UserDefaults.standard.set(touchPoint, forKey: "bottomLeft")
+		} else if selectedCorner == CornerList.bottomRight {
+			UserDefaults.standard.set(touchPoint, forKey: "bottomRight")
+		} else if selectedCorner == CornerList.topLeft {
+			UserDefaults.standard.set(touchPoint, forKey: "topLeft")
+		} else if selectedCorner == CornerList.topRight {
+			UserDefaults.standard.set(touchPoint, forKey: "topRight")
+		}
+		UserDefaults.standard.synchronize()
+	}
+	
+	@IBAction func doneButtonPressed(sender: UIBarButtonItem) {
+		dismiss(animated: true, completion: nil)
+	}
 }

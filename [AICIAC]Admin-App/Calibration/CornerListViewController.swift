@@ -10,12 +10,19 @@ import UIKit
 
 class CornerListViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
+	
+	var selectedCorner = CornerList.none
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "showCornerViewModalSegue" {
+			UserDefaults.standard.set(selectedCorner.rawValue, forKey: "selectedCorner")
+			UserDefaults.standard.synchronize()
+		}
+	}
 }
 
 extension CornerListViewController: UITableViewDataSource {
@@ -32,12 +39,16 @@ extension CornerListViewController: UITableViewDataSource {
 		
 		if indexPath.row == 0 {
 			cell.textLabel?.text = "Top left corner"
+			selectedCorner = .topLeft
 		} else if indexPath.row == 1 {
 			cell.textLabel?.text = "Top right corner"
+			selectedCorner = .topRight
 		} else if indexPath.row == 2 {
 			cell.textLabel?.text = "Bottom left corner"
+			selectedCorner = .bottomLeft
 		} else if indexPath.row == 3 {
 			cell.textLabel?.text = "Bottom right corner"
+			selectedCorner = .bottomRight
 		}
 		return UITableViewCell()
 	}
@@ -46,5 +57,6 @@ extension CornerListViewController: UITableViewDataSource {
 extension CornerListViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		performSegue(withIdentifier: "showCornerViewModalSegue", sender: self)
 	}
 }
