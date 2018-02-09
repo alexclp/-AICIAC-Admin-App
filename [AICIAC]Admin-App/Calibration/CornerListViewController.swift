@@ -40,15 +40,19 @@ extension CornerListViewController: UITableViewDataSource {
 		if indexPath.row == 0 {
 			cell.textLabel?.text = "Top left corner"
 			selectedCorner = .topLeft
+			return cell
 		} else if indexPath.row == 1 {
 			cell.textLabel?.text = "Top right corner"
 			selectedCorner = .topRight
+			return cell
 		} else if indexPath.row == 2 {
 			cell.textLabel?.text = "Bottom left corner"
 			selectedCorner = .bottomLeft
+			return cell
 		} else if indexPath.row == 3 {
 			cell.textLabel?.text = "Bottom right corner"
 			selectedCorner = .bottomRight
+			return cell
 		}
 		return UITableViewCell()
 	}

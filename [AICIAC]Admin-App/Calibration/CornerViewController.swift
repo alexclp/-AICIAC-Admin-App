@@ -35,16 +35,23 @@ class CornerViewController: UIViewController {
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		let touch = touches.first!
 		let touchPoint = touch.location(in: self.floorImageView)
+		let x = Double(touchPoint.x)
+		let y = Double(touchPoint.y)
 		if selectedCorner == CornerList.bottomLeft {
-			UserDefaults.standard.set(touchPoint, forKey: "bottomLeft")
+			UserDefaults.standard.set(x, forKey: "bottomLeftX")
+			UserDefaults.standard.set(y, forKey: "bottomLeftY")
 		} else if selectedCorner == CornerList.bottomRight {
-			UserDefaults.standard.set(touchPoint, forKey: "bottomRight")
+			UserDefaults.standard.set(x, forKey: "bottomRightX")
+			UserDefaults.standard.set(y, forKey: "bottomRightY")
 		} else if selectedCorner == CornerList.topLeft {
-			UserDefaults.standard.set(touchPoint, forKey: "topLeft")
+			UserDefaults.standard.set(x, forKey: "topLeftX")
+			UserDefaults.standard.set(y, forKey: "topLeftY")
 		} else if selectedCorner == CornerList.topRight {
-			UserDefaults.standard.set(touchPoint, forKey: "topRight")
+			UserDefaults.standard.set(x, forKey: "topRightX")
+			UserDefaults.standard.set(y, forKey: "topRightY")
 		}
 		UserDefaults.standard.synchronize()
+		dismiss(animated: true, completion: nil)
 	}
 	
 	@IBAction func doneButtonPressed(sender: UIBarButtonItem) {
