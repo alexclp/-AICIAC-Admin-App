@@ -32,9 +32,14 @@ class FloorPlanViewController: UIViewController {
 	
 	// MARK: API
 	
-	func createLocation(x: Double, y: Double, roomID: Int) {
+	func createLocation(x: Double, y: Double, lat: Double, long: Double, roomID: Int) {
+		let size = self.view.bounds.size
 		let params = ["x": x,
 					  "y": y,
+					  "latitude": lat,
+					  "longitude": long,
+					  "standardWidth": Double(size.width),
+					  "standardHeight": Double(size.height),
 					  "roomID": roomID]
 		as [String: Any]
 		HTTPClient.shared.request(urlString: baseURLAPI + "/locations", method: "POST", parameters: params) { (success, data) in
@@ -82,6 +87,16 @@ class FloorPlanViewController: UIViewController {
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		let touch = touches.first!
 		let touchPoint = touch.location(in: self.view)
+		let topLeftPosition = (UserDefaults.standard.double(forKey: "topLeftX"),
+							   UserDefaults.standard.double(forKey: "topLeftY"))
+		let bottomLeftPosition = (UserDefaults.standard.double(forKey: "bottomLeftX"),
+								  UserDefaults.standard.double(forKey: "bottomLeftY"))
+		guard let touchPointCoordinates = Utils.circleIntersection(floorPlanFirst: topLeftPosition, floorPlanSecond: bottomLeftPosition, first: topLeftCoordinates, second: bottomLeftCoordinates, with: (Double(touchPoint.x), Double(touchPoint.y)))?.first else { return }
+		
+		if roomID != -1 {
+			createLocation(x: Double(touchPoint.x), y: Double(touchPoint.y), lat: touchPointCoordinates.0, long: touchPointCoordinates.1, roomID: roomID)
+		}
+		
 //		print("Touch point is: \(touchPoint)")
 //		if let floorPlanImage = floorPlanImageView.image {
 //			let x = (touchPoint.x - floorPlanImageView.bounds.minX) * floorPlanImage.size.width / floorPlanImageView.bounds.width
@@ -93,12 +108,12 @@ class FloorPlanViewController: UIViewController {
 //			}
 //		}
 		
-		print("Touch point: \(touchPoint)")
-		let topLeftX = UserDefaults.standard.double(forKey: "topLeftX")
-		let topLeftY = UserDefaults.standard.double(forKey: "topLeftY")
-		print("Registered coords (screen): \(topLeftX, topLeftY)")
-		print("Latitude/longitude registered: \(topLeftCoordinates)")
-		let newCoords = (Double(touchPoint.y) * topLeftCoordinates.1 / topLeftY, Double(touchPoint.x) * topLeftCoordinates.1 / topLeftX)
-		print("New coords: \(newCoords)")
+//		print("Touch point: \(touchPoint)")
+//		let topLeftX = UserDefaults.standard.double(forKey: "topLeftX")
+//		let topLeftY = UserDefaults.standard.double(forKey: "topLeftY")
+//		print("Registered coords (screen): \(topLeftX, topLeftY)")
+//		print("Latitude/longitude registered: \(topLeftCoordinates)")
+//		let newCoords = (Double(touchPoint.y) * topLeftCoordinates.1 / topLeftY, Double(touchPoint.x) * topLeftCoordinates.1 / topLeftX)
+//		print("New coords: \(newCoords)")
 	}
 }

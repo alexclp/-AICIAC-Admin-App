@@ -133,6 +133,7 @@
                     <connections>
                         <outlet property="tableView" destination="djP-OV-ZoT" id="Xge-Wo-pOb"/>
                         <segue destination="c3f-qM-G5D" kind="presentation" identifier="showCornerViewModalSegue" id="mOR-XV-YZc"/>
+                        <segue destination="enn-LT-OGA" kind="show" identifier="finishedCalibrationSegue" id="RNy-CQ-ppa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1t-Tz-Erb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -316,4 +317,7 @@
     <resources>
         <image name="bh_5th.png" width="784" height="2256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="RNy-CQ-ppa"/>
+    </inferredMetricsTieBreakers>
 </document>

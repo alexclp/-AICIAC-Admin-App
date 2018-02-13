@@ -16,12 +16,40 @@ class CornerListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		if checkIfDataExists() == true {
+			showDoneButton()
+		}
+	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "showCornerViewModalSegue" {
 			UserDefaults.standard.set(selectedCorner.rawValue, forKey: "selectedCorner")
 			UserDefaults.standard.synchronize()
 		}
+	}
+	
+	func showDoneButton() {
+		let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtonPressed(sender:)))
+		self.navigationItem.rightBarButtonItem = button
+	}
+	
+	@objc func doneButtonPressed(sender: UIBarButtonItem) {
+		performSegue(withIdentifier: "finishedCalibrationSegue", sender: self)
+	}
+	
+	func checkIfDataExists() -> Bool {
+		return (
+			UserDefaults.standard.double(forKey: "topLeftX") != 0.0 &&
+			UserDefaults.standard.double(forKey: "topLeftY") != 0.0 &&
+			UserDefaults.standard.double(forKey: "topRightX") != 0.0 &&
+			UserDefaults.standard.double(forKey: "bottomLeftX") != 0.0 &&
+			UserDefaults.standard.double(forKey: "bottomLeftY") != 0.0 &&
+			UserDefaults.standard.double(forKey: "bottomRightX") != 0.0 &&
+			UserDefaults.standard.double(forKey: "bottomRightY") != 0.0
+		)
 	}
 }
 

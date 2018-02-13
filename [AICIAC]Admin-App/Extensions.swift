@@ -23,11 +23,11 @@ extension UserDefaults {
 	static func isFirstLaunch() -> Bool {
 		let flagName = "launched"
 		
-		if UserDefaults.standard.object(forKey: flagName) != nil {
+		if UserDefaults.standard.integer(forKey: flagName) != 2 {
 			return true
 		}
 		
-		UserDefaults.standard.set(true, forKey: flagName)
+		UserDefaults.standard.set(2, forKey: flagName)
 		UserDefaults.standard.synchronize()
 		return false
 	}

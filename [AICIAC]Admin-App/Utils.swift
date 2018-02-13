@@ -58,8 +58,9 @@ class Utils: NSObject {
 		}
 	}
 	
-	static func interpolatePointToCurrentSize(point: CGPoint, from standardSize: CGSize) -> CGPoint? {
-		guard let currentSize = (UIApplication.shared.delegate as? AppDelegate)?.window?.bounds.size else { return nil }
+	static func interpolatePointToCurrentSize(point: CGPoint, from standardSize: CGSize, in view: UIView) -> CGPoint? {
+//		guard let currentSize = (UIApplication.shared.delegate as? AppDelegate)?.window?.bounds.size else { return nil }
+		let currentSize = view.bounds.size
 		return CGPoint(
 			x: point.x * currentSize.width / standardSize.width,
 			y: point.y * currentSize.height / standardSize.height
