@@ -20,10 +20,10 @@ class CornerViewController: UIViewController {
 	@IBOutlet weak var floorImageView: UIImageView!
 	
 	var selectedCorner = CornerList.none
-	var topRightCoordinates = (51.51353, -0.117070)
-	var topLeftCoordinates = (51.51298, -0.117716)
-	var bottomRightCoordinates = (51.512472, -0.116762)
-	var bottomLeftCoordinates = (51.512354, -0.117334)
+	let topRightCoordinates = (51.51353, -0.117070)
+	let topLeftCoordinates = (51.51298, -0.117716)
+	let bottomRightCoordinates = (51.512472, -0.116762)
+	let bottomLeftCoordinates = (51.512354, -0.117334)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +35,10 @@ class CornerViewController: UIViewController {
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		let touch = touches.first!
 		let touchPoint = touch.location(in: self.floorImageView)
+		print("Selected corner is: \(selectedCorner)")
 		let x = Double(touchPoint.x)
 		let y = Double(touchPoint.y)
+		print("Setting coordinates: \(x, y)")
 		if selectedCorner == CornerList.bottomLeft {
 			UserDefaults.standard.set(x, forKey: "bottomLeftX")
 			UserDefaults.standard.set(y, forKey: "bottomLeftY")

@@ -11,12 +11,12 @@ import UIKit
 class SplashViewController: UIViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		if UserDefaults.isFirstLaunch() {
+//		if UserDefaults.isFirstLaunch() {
 			// launch calibration view controller
-			self.performSegue(withIdentifier: "showCornersListSegue", sender: self)
-		} else {
+//			self.performSegue(withIdentifier: "showCornersListSegue", sender: self)
+//		} else {
 			// go to measurements
 			self.performSegue(withIdentifier: "showFloorListSegue", sender: self)
-		}
+//		}
 	}
 }

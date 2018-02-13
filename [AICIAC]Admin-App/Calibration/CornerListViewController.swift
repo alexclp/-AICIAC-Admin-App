@@ -39,19 +39,15 @@ extension CornerListViewController: UITableViewDataSource {
 		
 		if indexPath.row == 0 {
 			cell.textLabel?.text = "Top left corner"
-			selectedCorner = .topLeft
 			return cell
 		} else if indexPath.row == 1 {
 			cell.textLabel?.text = "Top right corner"
-			selectedCorner = .topRight
 			return cell
 		} else if indexPath.row == 2 {
 			cell.textLabel?.text = "Bottom left corner"
-			selectedCorner = .bottomLeft
 			return cell
 		} else if indexPath.row == 3 {
 			cell.textLabel?.text = "Bottom right corner"
-			selectedCorner = .bottomRight
 			return cell
 		}
 		return UITableViewCell()
@@ -61,6 +57,15 @@ extension CornerListViewController: UITableViewDataSource {
 extension CornerListViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		if indexPath.row == 0 {
+			selectedCorner = .topLeft
+		} else if indexPath.row == 1 {
+			selectedCorner = .topRight
+		} else if indexPath.row == 2 {
+			selectedCorner = .bottomLeft
+		} else if indexPath.row == 3 {
+			selectedCorner = .bottomRight
+		}
 		performSegue(withIdentifier: "showCornerViewModalSegue", sender: self)
 	}
 }

@@ -18,6 +18,11 @@ class FloorPlanViewController: UIViewController {
 	var roomID = -1
 	var locationID = -1
 	
+	let topRightCoordinates = (51.51353, -0.117070)
+	let topLeftCoordinates = (51.51298, -0.117716)
+	let bottomRightCoordinates = (51.512472, -0.116762)
+	let bottomLeftCoordinates = (51.512354, -0.117334)
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.navigationItem.title = imageName
@@ -76,16 +81,24 @@ class FloorPlanViewController: UIViewController {
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		let touch = touches.first!
-		let touchPoint = touch.location(in: self.floorPlanImageView)
-		print("Touch point is: \(touchPoint)")
-		if let floorPlanImage = floorPlanImageView.image {
-			let x = (touchPoint.x - floorPlanImageView.bounds.minX) * floorPlanImage.size.width / floorPlanImageView.bounds.width
-			let y = (touchPoint.y - floorPlanImageView.bounds.minY) * floorPlanImage.size.height / floorPlanImageView.bounds.height
-			print("Locations are x: \(x) and \(y)")
-			
-			if roomID != -1 {
-//				createLocation(x: Double(x), y: Double(y), roomID: roomID)
-			}
-		}
+		let touchPoint = touch.location(in: self.view)
+//		print("Touch point is: \(touchPoint)")
+//		if let floorPlanImage = floorPlanImageView.image {
+//			let x = (touchPoint.x - floorPlanImageView.bounds.minX) * floorPlanImage.size.width / floorPlanImageView.bounds.width
+//			let y = (touchPoint.y - floorPlanImageView.bounds.minY) * floorPlanImage.size.height / floorPlanImageView.bounds.height
+//			print("Locations are x: \(x) and \(y)")
+//
+//			if roomID != -1 {
+////				createLocation(x: Double(x), y: Double(y), roomID: roomID)
+//			}
+//		}
+		
+		print("Touch point: \(touchPoint)")
+		let topLeftX = UserDefaults.standard.double(forKey: "topLeftX")
+		let topLeftY = UserDefaults.standard.double(forKey: "topLeftY")
+		print("Registered coords (screen): \(topLeftX, topLeftY)")
+		print("Latitude/longitude registered: \(topLeftCoordinates)")
+		let newCoords = (Double(touchPoint.y) * topLeftCoordinates.1 / topLeftY, Double(touchPoint.x) * topLeftCoordinates.1 / topLeftX)
+		print("New coords: \(newCoords)")
 	}
 }
