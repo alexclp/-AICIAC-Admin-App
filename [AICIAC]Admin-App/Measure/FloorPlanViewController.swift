@@ -91,29 +91,10 @@ class FloorPlanViewController: UIViewController {
 							   UserDefaults.standard.double(forKey: "topLeftY"))
 		let bottomLeftPosition = (UserDefaults.standard.double(forKey: "bottomLeftX"),
 								  UserDefaults.standard.double(forKey: "bottomLeftY"))
-		guard let touchPointCoordinates = Utils.circleIntersection(floorPlanFirst: topLeftPosition, floorPlanSecond: bottomLeftPosition, first: topLeftCoordinates, second: bottomLeftCoordinates, with: (Double(touchPoint.x), Double(touchPoint.y)))?.first else { return }
+		guard let touchPointCoordinates = Utils.circleIntersection(floorPlanFirst: topLeftPosition, floorPlanSecond: bottomLeftPosition, first: topLeftCoordinates, second: bottomLeftCoordinates, with: (Double(touchPoint.x), Double(touchPoint.y)))?[1] else { return }
 		
 		if roomID != -1 {
 			createLocation(x: Double(touchPoint.x), y: Double(touchPoint.y), lat: touchPointCoordinates.0, long: touchPointCoordinates.1, roomID: roomID)
 		}
-		
-//		print("Touch point is: \(touchPoint)")
-//		if let floorPlanImage = floorPlanImageView.image {
-//			let x = (touchPoint.x - floorPlanImageView.bounds.minX) * floorPlanImage.size.width / floorPlanImageView.bounds.width
-//			let y = (touchPoint.y - floorPlanImageView.bounds.minY) * floorPlanImage.size.height / floorPlanImageView.bounds.height
-//			print("Locations are x: \(x) and \(y)")
-//
-//			if roomID != -1 {
-////				createLocation(x: Double(x), y: Double(y), roomID: roomID)
-//			}
-//		}
-		
-//		print("Touch point: \(touchPoint)")
-//		let topLeftX = UserDefaults.standard.double(forKey: "topLeftX")
-//		let topLeftY = UserDefaults.standard.double(forKey: "topLeftY")
-//		print("Registered coords (screen): \(topLeftX, topLeftY)")
-//		print("Latitude/longitude registered: \(topLeftCoordinates)")
-//		let newCoords = (Double(touchPoint.y) * topLeftCoordinates.1 / topLeftY, Double(touchPoint.x) * topLeftCoordinates.1 / topLeftX)
-//		print("New coords: \(newCoords)")
 	}
 }

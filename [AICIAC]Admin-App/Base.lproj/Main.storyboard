@@ -87,7 +87,7 @@
         <!--Corner List View Controller-->
         <scene sceneID="LZ3-iW-UgV">
             <objects>
-                <viewController id="5el-60-Ir6" customClass="CornerListViewController" customModule="_AICIAC_Admin_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="5el-60-Ir6" customClass="CornerListViewController" customModule="_AICIAC_Admin_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XcM-OA-3sS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
