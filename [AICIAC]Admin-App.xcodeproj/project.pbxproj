@@ -20,6 +20,7 @@
 		0F34AEEC202DE9F400559EDB /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F34AEE9202DE9F400559EDB /* RoomListViewController.swift */; };
 		0F435B1D2018C52F00D4B757 /* bh_6th.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F435B1B2018C52F00D4B757 /* bh_6th.png */; };
 		0FB6ED362031D7FC00377B4F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6ED352031D7FC00377B4F /* Utils.swift */; };
+		0FB7BA03204EF25A007CE27C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB7BA02204EF25A007CE27C /* Location.swift */; };
 		0FBA247D201F43E800263932 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA247C201F43E800263932 /* HTTPClient.swift */; };
 		0FBA2481201F8C6900263932 /* bh_5th.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FBA2480201F8C6900263932 /* bh_5th.png */; };
 		0FBA24842020A98C00263932 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA24832020A98C00263932 /* Extensions.swift */; };
@@ -41,6 +42,7 @@
 		0F34AEE9202DE9F400559EDB /* RoomListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
 		0F435B1B2018C52F00D4B757 /* bh_6th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bh_6th.png; sourceTree = "<group>"; };
 		0FB6ED352031D7FC00377B4F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		0FB7BA02204EF25A007CE27C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0FBA247C201F43E800263932 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		0FBA2480201F8C6900263932 /* bh_5th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bh_5th.png; sourceTree = "<group>"; };
 		0FBA24832020A98C00263932 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				0FB6ED352031D7FC00377B4F /* Utils.swift */,
 				0FBA247C201F43E800263932 /* HTTPClient.swift */,
 				0F34AEDF202C97E000559EDB /* SplashViewController.swift */,
+				0FB7BA02204EF25A007CE27C /* Location.swift */,
 				0F34AEE1202C985E00559EDB /* Calibration */,
 				0F34AEE2202C988300559EDB /* Measure */,
 				0F2BAE6E2017A44A0006C27D /* Main.storyboard */,
@@ -197,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F34AEEC202DE9F400559EDB /* RoomListViewController.swift in Sources */,
+				0FB7BA03204EF25A007CE27C /* Location.swift in Sources */,
 				0F34AEEA202DE9F400559EDB /* FloorListViewController.swift in Sources */,
 				0FBA24842020A98C00263932 /* Extensions.swift in Sources */,
 				0F34AEE6202CA21000559EDB /* CornerViewController.swift in Sources */,
