@@ -12,7 +12,6 @@ class FloorPlanViewController: UIViewController {
 	@IBOutlet weak var floorPlanImageView: UIImageView!
 	
 	let baseURLAPI = "https://wifi-nav-api.herokuapp.com"
-//	let baseURLAPI = "http://localhost:8080"
 	let baseURLScanner = "https://scanner-on-off.herokuapp.com"
 	
 	var imageName = ""
@@ -152,6 +151,7 @@ class FloorPlanViewController: UIViewController {
 					makeConnectionBetweenLocations(location1: root, location2: childLocation) { (response) in
 						print(response)
 					}
+					return
 				} else {
 					rootLocation = location
 					location.view?.backgroundColor = UIColor.blue
@@ -167,7 +167,7 @@ class FloorPlanViewController: UIViewController {
 		print(touchPoint)
 		print(touchPointCoordinates)
 		if roomID != -1 {
-//			createLocation(x: Double(touchPoint.x), y: Double(touchPoint.y), lat: touchPointCoordinates.0, long: touchPointCoordinates.1, roomID: roomID)
+			createLocation(x: Double(touchPoint.x), y: Double(touchPoint.y), lat: touchPointCoordinates.0, long: touchPointCoordinates.1, roomID: roomID)
 		}
 	}
 	
